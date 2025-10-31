@@ -92,6 +92,50 @@ class LinkedList:
 
     def __len__(self):
         return self.size
+class Stack:
+    def __init__(self):
+        self._list = LinkedList()
+
+    def push(self, item):
+        self._list.add_first(item)  # add at head (O(1))
+
+    def pop(self):
+        return self._list.remove_first()  # remove from head (O(1))
+
+    def peek(self):
+        return None if self._list.head is None else self._list.head.data
+
+    def is_empty(self):
+        return len(self._list) == 0
+
+    def __len__(self):
+        return len(self._list)
+
+    def __str__(self):
+        return f"Stack(top→bottom): {self._list.display()}"
+
+class Queue:
+    def __init__(self):
+        self._list = LinkedList()
+
+    def enqueue(self, item):
+        self._list.add_last(item)  # O(1) because tail pointer is tracked
+
+    def dequeue(self):
+        return self._list.remove_first()  # O(1)
+
+    def front(self):
+        return None if self._list.head is None else self._list.head.data
+
+    def is_empty(self):
+        return len(self._list) == 0
+
+    def __len__(self):
+        return len(self._list)
+
+    def __str__(self):
+        return f"Queue(front→back): {self._list.display()}"
+
 
 if __name__ == "__main__":
     # Create a new linked list
