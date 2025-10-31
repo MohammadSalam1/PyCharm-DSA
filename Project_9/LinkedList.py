@@ -138,49 +138,55 @@ class Queue:
 
 
 if __name__ == "__main__":
-    # Create a new linked list
+    print("=== LINKED LIST TEST ===")
     ll = LinkedList()
-    print("Initial list (should be empty):", ll.display())
-    print("Initial length:", len(ll))
+    print("Initial list:", ll.display())
+    print("Empty?", len(ll) == 0)
     print()
 
-    # Add elements at the front
+    # Add items
     ll.add_first(10)
     ll.add_first(20)
-    ll.add_first(30)
-    print("After adding at front (30, 20, 10):", ll.display())
-    print("Length after add_first:", len(ll))
-    print()
-
-    # Add elements at the end
+    ll.add_last(30)
     ll.add_last(40)
-    ll.add_last(50)
-    print("After adding at end (40, 50):", ll.display())
-    print("Length after add_last:", len(ll))
+    print("List after adding elements:", ll.display())
+    print("Length:", len(ll))
     print()
 
-    # Search for values
-    print("Search for 20:", ll.search(20))  # should be True
-    print("Search for 99:", ll.search(99))  # should be False
-    print()
-
-    # Remove first element
-    removed_first = ll.remove_first()
-    print(f"Removed first element: {removed_first}")
-    print("List after remove_first:", ll.display())
+    # Remove items
+    print("Removed first:", ll.remove_first())
+    print("Removed last:", ll.remove_last())
+    print("List after removals:", ll.display())
     print("Length now:", len(ll))
     print()
 
-    # Remove last element
-    removed_last = ll.remove_last()
-    print(f"Removed last element: {removed_last}")
-    print("List after remove_last:", ll.display())
-    print("Length now:", len(ll))
+    # Search test
+    print("Searching for 20:", ll.search(20))
+    print("Searching for 99:", ll.search(99))
     print()
 
-    # Test removing until empty
-    print("Removing everything...")
-    while len(ll) > 0:
-        print("Removed:", ll.remove_first())
-    print("List after clearing:", ll.display())
-    print("Final length:", len(ll))
+    print("=== STACK TEST ===")
+    s = Stack()
+    s.push("A")
+    s.push("B")
+    s.push("C")
+    print(s)
+    print("Peek:", s.peek())
+    print("Pop:", s.pop())
+    print(s)
+    print("Is empty?", s.is_empty())
+    print("Length:", len(s))
+    print()
+
+    print("=== QUEUE TEST ===")
+    q = Queue()
+    q.enqueue(1)
+    q.enqueue(2)
+    q.enqueue(3)
+    print(q)
+    print("Front:", q.front())
+    print("Dequeue:", q.dequeue())
+    print(q)
+    print("Is empty?", q.is_empty())
+    print("Length:", len(q))
+
